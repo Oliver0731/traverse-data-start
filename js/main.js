@@ -27,13 +27,15 @@ function btnClicked() {
 
 // Menu Option Functions
 function traverseSurveyData() {
+  let surveyStr = surveyData.split(" ");
   // Traverse the surveyData array to:
   // Count the number of "Yes" responses,
   // Count the number of "No" responses,
   // Count the number of "Maybe" responses,
   // and output the results in the outputEl.
+  // for (i = 0; i < sur)
 
-  outputEl.innerHTML = "Survey Data";
+  outputEl.innerHTML = surveyStr;
   console.log(surveyData);
 }
 
