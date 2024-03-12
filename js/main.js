@@ -27,36 +27,56 @@ function btnClicked() {
 
 // Menu Option Functions
 function traverseSurveyData() {
-  let surveyStr = surveyData.split(" ");
-  // Traverse the surveyData array to:
-  // Count the number of "Yes" responses,
-  // Count the number of "No" responses,
-  // Count the number of "Maybe" responses,
-  // and output the results in the outputEl.
-  // for (i = 0; i < sur)
+  let yes = 0;
+  let maybe = 0;
+  let no = 0;
 
-  outputEl.innerHTML = surveyStr;
-  console.log(surveyData);
+  for (let i = 0; i < surveyData.length + 1; i++) {
+    if (surveyData[i] === "Yes") {
+      yes++;
+    } else if (surveyData[i] === "Maybe") {
+      maybe++;
+    } else {
+      no++;
+    }
+  }
+  outputEl.innerHTML = `<div># of yes: ${yes}</div><div># of maybe: ${maybe}</div><div># of no: ${no}</div> `;
+  console.log(yes, maybe, no);
 }
 
 function traverseAgeData() {
+  let minors = 0;
+  let prime = 0;
+  let experienced = 0;
+  let wise = 0;
   // Traverse the ageData array to:
-  // Count the number of ages under 18,
-  // Count the number of ages between 18 and 35, inclusive
-  // Count the number of ages between 36 and 65, inclusive
-  // Count the number of ages above 65,
-  // and output the results in the outputEl.
+  for (let i = 0; i < ageData.length; i++) {
+    if (ageData[i] < 18) {
+      minors++;
+    } else if (ageData[i] <= 35) {
+      prime++;
+    } else if (ageData[i] <= 65) {
+      experienced++;
+    } else {
+      wise++;
+    }
+  }
 
-  outputEl.innerHTML = "Age Data";
-  console.log(ageData);
+  outputEl.innerHTML = `<div>Minors(0 to 18): ${minors}</div><div> New Adult(18 to 35): ${prime}</div><div>Experienced adult(36 to 65): ${experienced}</div><div>Old Wise Adult(65+): ${wise}</div> `;
+  console.log(prime, minors, experienced, wise);
 }
 
 function traverseNumberData() {
-  // Traverse the numberData array to:
-  // Count the number of even numbers,
-  // Count the number of odd numbers,
-  // and output the results in the outputEl.
+  let odd = 0;
+  let even = 0;
+  for (let i = 0; i < numberData.length; i++) {
+    if (numberData[i] / 2 === Math.floor(numberData[i] / 2)) {
+      even++;
+    } else {
+      odd++;
+    }
 
-  outputEl.innerHTML = "Number Data";
-  console.log(numberData);
+    outputEl.innerHTML = `odd: ${odd}, even : ${even}`;
+    console.log(numberData);
+  }
 }
